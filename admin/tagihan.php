@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+    header('Location: ../login.php');
+    exit;
+}
 // Data dummy tagihan
 $tagihan = [
     [
@@ -116,6 +121,7 @@ $kamarPenghuniAktif = [
             <li><a href="tagihan.php" class="active">Pengelolaan Tagihan</a></li>
             <li><a href="pembayaran.php">Pengelolaan Pembayaran</a></li>
             <li><a href="generate_tagihan.php">Generate Tagihan</a></li>
+            <li><a href="logout.php">Logout</a></li>
             <li><a href="../index.php">Kembali ke Dashboard</a></li>
         </ul>
     </div>
