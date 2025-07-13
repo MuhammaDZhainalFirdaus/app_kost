@@ -1,4 +1,36 @@
 @import url('https://rsms.me/inter/inter-ui.css');
+
+/* CSS Variables for Theme */
+:root {
+    /* Light Theme Colors */
+    --page-bg: #e2e2e5;
+    --left-bg: #ffffff;
+    --right-bg: #474A59;
+    --text-primary: #000000;
+    --text-secondary: #999;
+    --text-form: #f2f2f2;
+    --text-label: #c2c2c5;
+    --text-submit: #707075;
+    --text-submit-focus: #f2f2f2;
+    --text-submit-active: #d0d0d2;
+    --shadow: rgba(0,0,0,0.22);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --page-bg: #1a1a1a;
+    --left-bg: #2d2d2d;
+    --right-bg: #1a202c;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-form: #e0e0e0;
+    --text-label: #a0a0a0;
+    --text-submit: #a0a0a0;
+    --text-submit-focus: #ffffff;
+    --text-submit-active: #d0d0d0;
+    --shadow: rgba(0,0,0,0.4);
+}
+
 ::selection {
   background: #2D2F36;
 }
@@ -15,13 +47,14 @@ body {
   padding: 20px;
 }
 .page {
-  background: #e2e2e5;
+  background: var(--page-bg);
   display: flex;
   flex-direction: column;
   height: calc(100% - 40px);
   position: absolute;
   place-content: center;
   width: calc(100% - 40px);
+  transition: background 0.3s ease;
 }
 @media (max-width: 767px) {
   .page {
@@ -44,11 +77,12 @@ body {
   }
 }
 .left {
-  background: white;
+  background: var(--left-bg);
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
   width: 50%;
+  transition: background 0.3s ease;
 }
 @media (max-width: 767px) {
   .left {
@@ -62,19 +96,23 @@ body {
   font-size: 50px;
   font-weight: 900;
   margin: 50px 40px 40px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 .eula {
-  color: #999;
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.5;
   margin: 40px;
+  transition: color 0.3s ease;
 }
 .right {
-  background: #474A59;
-  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-  color: #F1F1F2;
+  background: var(--right-bg);
+  box-shadow: 0px 0px 40px 16px var(--shadow);
+  color: var(--text-form);
   position: relative;
   width: 50%;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 @media (max-width: 767px) {
   .right {
@@ -99,34 +137,36 @@ path {
   position: absolute;
 }
 label {
-  color:  #c2c2c5;
+  color: var(--text-label);
   display: block;
   font-size: 14px;
   height: 16px;
   margin-top: 20px;
   margin-bottom: 5px;
+  transition: color 0.3s ease;
 }
 input {
   background: transparent;
   border: 0;
-  color: #f2f2f2;
+  color: var(--text-form);
   font-size: 20px;
   height: 30px;
   line-height: 30px;
   outline: none !important;
   width: 100%;
+  transition: color 0.3s ease;
 }
 input::-moz-focus-inner { 
   border: 0; 
 }
 #submit {
-  color: #707075;
+  color: var(--text-submit);
   margin-top: 40px;
   transition: color 300ms;
 }
 #submit:focus {
-  color: #f2f2f2;
+  color: var(--text-submit-focus);
 }
 #submit:active {
-  color: #d0d0d2;
+  color: var(--text-submit-active);
 } 
